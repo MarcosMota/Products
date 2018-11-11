@@ -1,0 +1,43 @@
+<h1 mat-dialog-title>Novo Produto</h1>
+<div mat-dialog-content>
+  <form [formGroup]="addressForm">
+      <input type="hidden" formControlName="id">
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="full-width" hintLabel="Maximo 50 characters">
+          <input matInput maxlength="50" placeholder="Descrição" formControlName="name">
+          <mat-error *ngIf="addressForm.hasError('required')">
+            Email is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="full-width">
+          <input matInput type="number" placeholder="Preço" formControlName="price">
+          <span matPrefix>$&nbsp;</span>
+          <span matSuffix>.00</span>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <mat-form-field class="full-width">
+          <mat-select placeholder="Categorias" formControlName="category">
+            <mat-option *ngFor="let category of $categories | async" [value]="category.CategoryId">
+              {{ category.Name }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="addressForm.hasError('required')">
+            Email is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancelar</button>
+  <button mat-button cdkFocusInitial (click)="onSaveClick()">Salvar</button>
+</div>

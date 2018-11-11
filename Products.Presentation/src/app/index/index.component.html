@@ -1,0 +1,41 @@
+<mat-drawer-container class="example-container" autosize>
+    <mat-toolbar color="primary">
+  
+      <mat-toolbar-row>
+        <span>Produtos</span>
+  
+        <button mat-icon-button [matMenuTriggerFor]="menu" style="margin-left:auto">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="onDocumentation()">
+            <mat-icon>book</mat-icon>
+            <span>Documentação da API</span>
+          </button>
+          <button mat-menu-item (click)="onLogout()">
+            <mat-icon>power_setting_new</mat-icon>
+            <span>Sair</span>
+          </button>
+        </mat-menu>
+      </mat-toolbar-row>
+  
+      <mat-toolbar-row>
+        <div class="example-button-row">
+          <button mat-button (click)="onNewProduct()">
+            <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
+            Novo Produto
+          </button>
+        </div>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+  
+      <app-list-category></app-list-category>
+    </mat-drawer>
+  
+  
+    <app-list-product [dataSource]></app-list-product>
+  
+  
+  </mat-drawer-container>
