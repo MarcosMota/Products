@@ -9,7 +9,6 @@ using System.Web.Http;
 
 namespace Products.API.Controllers
 {
-
     public class BaseController: ApiController
     {
         public void InternalServerCustom(CommandResult result)
